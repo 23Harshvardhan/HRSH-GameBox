@@ -1,5 +1,4 @@
-﻿using HRSH_GameBox.pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HRSH_GameBox
+namespace HRSH_GameBox.pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for homePg.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class homePg : Page
     {
-        public MainWindow()
+        public homePg()
         {
             InitializeComponent();
-        }
-
-        private void mainWind_Loaded(object sender, RoutedEventArgs e)
-        {
-            mainFrame.Content = new homePg();
         }
     }
 }
