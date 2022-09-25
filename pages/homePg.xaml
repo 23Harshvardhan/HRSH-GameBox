@@ -9,7 +9,10 @@
       Title="homePg" Background="White">
 
     <Grid>
-        <Label x:Name="lblQuote" Content='"Nothing is true, &#xD;&#xA;everything is permitted."' HorizontalAlignment="Left" Margin="39,0,0,0" VerticalAlignment="Center" FontWeight="Bold" FontSize="36" FontFamily="Bahnschrift Condensed"/>
-
+        <Label x:Name="lblQuote" Content='"Nothing is true, &#xD;&#xA;everything is permitted."' Margin="40,0,0,225" FontWeight="Bold" FontSize="36" FontFamily="Bahnschrift Condensed" Height="96" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="303"/>
+        <Label x:Name="lblAuthor" Content="- Assassin's Creed" Margin="40,0,0,189" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="22" HorizontalAlignment="Left" Width="143" Height="36" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnRandom" Content="RANDOM" HorizontalAlignment="Left" Margin="62,0,0,95" FontSize="16" FontFamily="Segoe UI Semibold" Width="143" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" Height="48" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnAddGame" Content="➕" HorizontalAlignment="Left" Margin="10,0,0,10" FontSize="16" FontFamily="Segoe UI Semibold" Width="30" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" Height="30" VerticalAlignment="Bottom" PreviewMouseDown="btnAddGame_PreviewMouseDown"/>
+        <WrapPanel x:Name="wrpPnl" Margin="360,0,0,0"/>
     </Grid>
 </Page>

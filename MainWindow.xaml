@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRSH_GameBox"
         mc:Ignorable="d"
-        Title="HRSH GameBox" Height="450" Width="800" Loaded="mainWind_Loaded">
+        Title="HRSH GameBox" Height="450" Width="800" Loaded="mainWind_Loaded" Background="White" ResizeMode="NoResize">
     <Grid>
         <Frame x:Name="mainFrame" Margin="0,40,0,0"></Frame>
     </Grid>

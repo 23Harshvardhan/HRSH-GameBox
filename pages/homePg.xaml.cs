@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HRSH_GameBox.tools;
+using HRSH_GameBox.windows;
 
 namespace HRSH_GameBox.pages
 {
@@ -20,9 +22,42 @@ namespace HRSH_GameBox.pages
     /// </summary>
     public partial class homePg : Page
     {
+        static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
+        static string configFile = configFolder + @"\cfg.ini";
+        static string gamesFile = configFolder + @"\gms.ini";
+
+        IniFile cgfIni = new IniFile(configFile);
+        IniFile gmsIni = new IniFile(gamesFile);
+
         public homePg()
         {
             InitializeComponent();
+        }
+
+        private void btnAddGame_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            AddGameWind addgameWind = new AddGameWind();
+            addgameWind.ShowDialog();
+        }
+
+        string GetNewGameId()
+        {
+            int i = 0;
+            bool found = false;
+
+            while(!found)
+            {
+                if(gmsIni.KeyExists(i.ToString()))
+                {
+                    i++;
+                }
+                else
+                {
+                    found = true;
+                }
+            }
+
+            return i.ToString();
         }
     }
 }
