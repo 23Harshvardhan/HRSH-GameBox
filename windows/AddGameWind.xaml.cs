@@ -23,5 +23,16 @@ namespace HRSH_GameBox.windows
         {
             InitializeComponent();
         }
+
+        private void btnLocPoster_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+
+            Nullable<bool> result = openFileDlg.ShowDialog();
+            if (result == true)
+            {
+                txtItemPath.Text = openFileDlg.FileName;
+            }
+        }
     }
 }

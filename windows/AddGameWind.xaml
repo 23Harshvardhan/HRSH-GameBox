@@ -8,7 +8,8 @@
         Title="HRSH GameBox Add Game" Height="258" Width="475" ResizeMode="NoResize">
     <Grid>
         <Image x:Name="imgAes1" HorizontalAlignment="Left" Margin="10,0,0,10" Width="200" Source="/img/icons.png" Height="200" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="txtItemPath" HorizontalAlignment="Left" Margin="80,46,0,0" TextWrapping="Wrap" Text="Path To Poster" VerticalAlignment="Top" Width="272" Height="30" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue"/>
+        <TextBox x:Name="txtItemPath" HorizontalAlignment="Left" Margin="80,0,0,166" TextWrapping="Wrap" Text="Path To Poster" Width="272" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue" FontSize="18" FontFamily="Segoe UI Light" Height="30" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnLocPoster" Content="Browse" HorizontalAlignment="Left" Margin="365,0,0,166" Width="81" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" FontSize="14" Height="30" VerticalAlignment="Bottom" Click="btnLocPoster_Click"/>
 
     </Grid>
 </Window>
