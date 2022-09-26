@@ -40,24 +40,14 @@ namespace HRSH_GameBox.pages
             addgameWind.ShowDialog();
         }
 
-        string GetNewGameId()
+        public void DrawLibrary()
         {
-            int i = 0;
-            bool found = false;
-
-            while(!found)
+            if(wrpPnl.Children.Count >= 1)
             {
-                if(gmsIni.KeyExists(i.ToString()))
-                {
-                    i++;
-                }
-                else
-                {
-                    found = true;
-                }
+                wrpPnl.Children.Clear();
             }
 
-            return i.ToString();
+
         }
     }
 }

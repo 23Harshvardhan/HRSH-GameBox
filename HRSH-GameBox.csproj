@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="tools\Helpers.cs" />
     <Compile Include="tools\IniFile.cs" />
     <Compile Include="windows\AddGameWind.xaml.cs">
       <DependentUpon>AddGameWind.xaml</DependentUpon>

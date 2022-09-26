@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRSH_GameBox.windows"
         mc:Ignorable="d"
-        Title="HRSH GameBox Add Game" Height="258" Width="475" ResizeMode="NoResize">
+        Title="HRSH GameBox Add Game" Height="290" Width="475" ResizeMode="NoResize">
     <Grid>
-        <Image x:Name="imgAes1" HorizontalAlignment="Left" Margin="10,0,0,10" Width="200" Source="/img/icons.png" Height="200" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="txtItemPath" HorizontalAlignment="Left" Margin="80,0,0,166" TextWrapping="Wrap" Text="Path To Poster" Width="272" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue" FontSize="18" FontFamily="Segoe UI Light" Height="30" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnLocPoster" Content="Browse" HorizontalAlignment="Left" Margin="365,0,0,166" Width="81" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" FontSize="14" Height="30" VerticalAlignment="Bottom" Click="btnLocPoster_Click"/>
+        <Image x:Name="imgAes1" HorizontalAlignment="Left" Margin="10,0,0,56" Width="200" Source="/img/icons.png" Height="200" VerticalAlignment="Bottom"/>
+        <TextBox x:Name="txtItemPath" HorizontalAlignment="Left" Margin="80,0,0,212" TextWrapping="Wrap" Text="Path To Poster" Width="272" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue" FontSize="18" FontFamily="Segoe UI Light" Height="30" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnLocPoster" Content="Browse" HorizontalAlignment="Left" Margin="365,0,0,212" Width="81" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" FontSize="14" Height="30" VerticalAlignment="Bottom" Click="btnLocPoster_Click"/>
+        <TextBox x:Name="txtGameName" HorizontalAlignment="Left" Margin="80,0,0,141" TextWrapping="Wrap" Width="366" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue" FontSize="18" FontFamily="Segoe UI Light" Height="30" VerticalAlignment="Bottom" Text="Enter Game Name"/>
+        <TextBox x:Name="txtGamePath" HorizontalAlignment="Left" Margin="80,0,0,70" TextWrapping="Wrap" Text="Path To Game" Width="272" SelectionBrush="DodgerBlue" BorderBrush="DodgerBlue" FontSize="18" FontFamily="Segoe UI Light" Height="30" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnLocGame" Content="Browse" HorizontalAlignment="Left" Margin="365,0,0,70" Width="81" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" FontSize="14" Height="30" VerticalAlignment="Bottom" Click="btnLocGame_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="80,0,0,18" Width="81" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" FontSize="14" Height="30" VerticalAlignment="Bottom" Click="btnSave_Click"/>
 
     </Grid>
 </Window>
