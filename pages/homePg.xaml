@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:HRSH_GameBox.pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="homePg" Background="White">
+      Title="homePg" Background="White" Loaded="homePge_Loaded">
 
     <Grid>
         <Label x:Name="lblQuote" Content='"Nothing is true, &#xD;&#xA;everything is permitted."' Margin="40,0,0,225" FontWeight="Bold" FontSize="36" FontFamily="Bahnschrift Condensed" Height="96" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="303"/>

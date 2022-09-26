@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HRSH_GameBox.tools;
 using HRSH_GameBox.windows;
+using System.IO;
 
 namespace HRSH_GameBox.pages
 {
@@ -25,9 +26,15 @@ namespace HRSH_GameBox.pages
         static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
         static string configFile = configFolder + @"\cfg.ini";
         static string gamesFile = configFolder + @"\gms.ini";
+        static string nameId = configFolder + @"\idn.ini";
+        static string poster = configFolder + @"\pos.ini";
 
         IniFile cgfIni = new IniFile(configFile);
         IniFile gmsIni = new IniFile(gamesFile);
+        IniFile inm = new IniFile(nameId);
+        IniFile posIni = new IniFile(poster);
+
+        string[] gameIds = new string[999];
 
         public homePg()
         {
@@ -39,15 +46,37 @@ namespace HRSH_GameBox.pages
             AddGameWind addgameWind = new AddGameWind();
             addgameWind.ShowDialog();
         }
-
+        
         public void DrawLibrary()
         {
-            if(wrpPnl.Children.Count >= 1)
+            if (wrpPnl.Children.Count >= 1)
             {
                 wrpPnl.Children.Clear();
             }
 
+            string[] entries = File.ReadAllLines(nameId);
+            entries = entries.Skip(1).ToArray();
 
+            if(gameIds.Length >= 1)
+                Array.Clear(gameIds, 0, gameIds.Length);
+            
+            foreach(string entry in entries)
+            {
+                string id = entry.Substring(0, entry.IndexOf('='));
+                gameIds.Append(id);
+            }
+
+            foreach(string id in gameIds)
+            {
+                Image img = new Image();
+                img.Name = inm.Read(id);
+                img.Source = new BitmapImage(new Uri(posIni.Read(id)));
+            }
+        }
+
+        private void homePge_Loaded(object sender, RoutedEventArgs e)
+        {
+            DrawLibrary();
         }
     }
 }
