@@ -22,6 +22,7 @@ namespace HRSH_GameBox.windows
     public partial class AddGameWind : Window
     {
         static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
+        static string posterFolder = configFolder + @"\posters\";
         static string configFile = configFolder + @"\cfg.ini";
         static string gamesFile = configFolder + @"\gms.ini";
         static string posterPath = configFolder + @"\pos.ini";
@@ -39,12 +40,11 @@ namespace HRSH_GameBox.windows
         private void btnLocPoster_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
-            openFileDlg.Filter = "Images (.jpg)|*.jpg";
+            openFileDlg.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             Nullable<bool> result = openFileDlg.ShowDialog();
             if (result == true)
             {
                 txtItemPath.Text = openFileDlg.FileName;
-                txtGameName.Text = openFileDlg.SafeFileName;
             }
         }
 
@@ -56,6 +56,7 @@ namespace HRSH_GameBox.windows
             if (result == true)
             {
                 txtGamePath.Text = openFileDlg.FileName;
+                txtGameName.Text = openFileDlg.SafeFileName;
             }
         }
 
@@ -69,8 +70,11 @@ namespace HRSH_GameBox.windows
                     {
                         string id = Helpers.GetNewGameId();
                         gameCfg.Write(id, txtGamePath.Text);
-                        gamePos.Write(id, txtItemPath.Text);
                         nameFile.Write(id, txtGameName.Text);
+
+                        File.Move(txtItemPath.Text, posterFolder + System.IO.Path.GetFileName(txtItemPath.Text));
+                        gamePos.Write(id, posterFolder + System.IO.Path.GetFileName(txtItemPath.Text));
+
                         this.Close();
                     }
                     else
@@ -85,7 +89,7 @@ namespace HRSH_GameBox.windows
             }
             else
             {
-                
+                MessageBox.Show("Specified path to the poster is not valid or does not exist!", "Invalid Poster Path", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

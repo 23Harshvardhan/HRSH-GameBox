@@ -23,7 +23,7 @@ namespace HRSH_GameBox.tools
 
             while (!found)
             {
-                if (gameCfg.KeyExists(i.ToString()))
+                if (gameCfg.KeyExists("i" + i.ToString()))
                 {
                     i++;
                 }

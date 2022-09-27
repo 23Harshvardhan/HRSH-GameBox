@@ -24,6 +24,7 @@ namespace HRSH_GameBox.pages
     public partial class homePg : Page
     {
         static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
+        static string posterFolder = configFolder + @"\posters\";
         static string configFile = configFolder + @"\cfg.ini";
         static string gamesFile = configFolder + @"\gms.ini";
         static string nameId = configFolder + @"\idn.ini";
@@ -71,14 +72,21 @@ namespace HRSH_GameBox.pages
                 foreach (string id in gameIds)
                 {
                     Image img = new Image();
-                    img.Name = inm.Read(id);
+                    img.Name = id;
                     img.Source = new BitmapImage(new Uri(posIni.Read(id), UriKind.RelativeOrAbsolute));
                     img.Width = 140;
                     img.Height = 200;
                     img.Stretch = Stretch.Fill;
+                    img.Margin = new Thickness(20,20, 0, 0);
+                    img.MouseDown += Img_MouseDown;
                     wrpPnl.Children.Add(img);
                 }
             }
+        }
+
+        private void Img_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var gameObj = (Image)sender;
         }
 
         private void homePge_Loaded(object sender, RoutedEventArgs e)

@@ -25,6 +25,7 @@ namespace HRSH_GameBox
     public partial class MainWindow : Window
     {
         static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
+        static string posterFolder = configFolder + @"\posters\";
         static string configFile = configFolder + @"\cfg.ini";
         static string gamesFile = configFolder + @"\gms.ini";
         static string posterPath = configFolder + @"\pos.ini";
@@ -65,6 +66,11 @@ namespace HRSH_GameBox
             {
                 FileStream fs4 = File.Create(idName);
                 fs4.Dispose();
+            }
+
+            if(!Directory.Exists(posterFolder))
+            {
+                Directory.CreateDirectory(posterFolder);
             }
         }
     }
