@@ -59,18 +59,23 @@ namespace HRSH_GameBox.pages
 
             if(gameIds.Length >= 1)
                 Array.Clear(gameIds, 0, gameIds.Length);
-            
-            foreach(string entry in entries)
-            {
-                string id = entry.Substring(0, entry.IndexOf('='));
-                gameIds.Append(id);
-            }
 
-            foreach(string id in gameIds)
+            if (entries.Length >= 1)
             {
-                Image img = new Image();
-                img.Name = inm.Read(id);
-                img.Source = new BitmapImage(new Uri(posIni.Read(id)));
+                foreach (string entry in entries)
+                {
+                    string id = entry.Substring(0, entry.IndexOf('='));
+                    gameIds.Append(id);
+                }
+
+                foreach (string id in gameIds)
+                {
+                    Image img = new Image();
+                    img.Name = inm.Read(id);
+                    img.Source = new BitmapImage(new Uri(posIni.Read(id), UriKind.RelativeOrAbsolute));
+                    img.Width = img.Height = 500;
+                    wrpPnl.Children.Add(img);
+                }
             }
         }
 

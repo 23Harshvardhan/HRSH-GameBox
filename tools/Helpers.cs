@@ -33,7 +33,7 @@ namespace HRSH_GameBox.tools
                 }
             }
 
-            return i.ToString();
+            return "i" + i.ToString();
         }
     }
 }
