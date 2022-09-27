@@ -1,0 +1,19 @@
+﻿<Page x:Class="HRSH_GameBox.pages.gamePg"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HRSH_GameBox.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="gamePg" Background="White" Loaded="Page_Loaded">
+
+    <Grid>
+        <Image x:Name="imgPoster" HorizontalAlignment="Left" Height="200" Margin="40,40,0,0" VerticalAlignment="Top" Width="140" Stretch="Fill" Source="/img/icons.png"/>
+        <Label x:Name="lblGameName" Content="Game Name" HorizontalAlignment="Left" Margin="208,59,0,0" VerticalAlignment="Top" Foreground="DodgerBlue" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
+        <Label x:Name="lblPlayTime" Content="Played for " HorizontalAlignment="Left" Margin="215,112,0,0" VerticalAlignment="Top" Foreground="#FF1B80E2" FontFamily="Bahnschrift Light" FontSize="18"/>
+        <Label x:Name="lblLastPlayed" Content="Last played on " HorizontalAlignment="Left" Margin="215,140,0,0" VerticalAlignment="Top" Foreground="#FF1B80E2" FontFamily="Bahnschrift Light" FontSize="18"/>
+        <Button x:Name="btnPlay" ToolTip="Launch game" Content="PLAY" Margin="215,208,0,0" FontSize="20" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="143" Height="48" VerticalAlignment="Top" PreviewMouseDown="btnPlay_MouseDown"/>
+        <Button x:Name="btnConfig" ToolTip="Configure settings for game." Content="⚙️" Margin="367,208,0,0" FontSize="20" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="48" Height="48" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

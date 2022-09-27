@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="pages\gamePg.xaml.cs">
+      <DependentUpon>gamePg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="tools\Helpers.cs" />
     <Compile Include="tools\IniFile.cs" />
     <Compile Include="windows\AddGameWind.xaml.cs">
@@ -73,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pages\gamePg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="pages\homePg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

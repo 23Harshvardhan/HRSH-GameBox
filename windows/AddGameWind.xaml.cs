@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using HRSH_GameBox.pages;
 
 namespace HRSH_GameBox.windows
 {
@@ -56,7 +57,7 @@ namespace HRSH_GameBox.windows
             if (result == true)
             {
                 txtGamePath.Text = openFileDlg.FileName;
-                txtGameName.Text = openFileDlg.SafeFileName;
+                txtGameName.Text = System.IO.Path.GetFileNameWithoutExtension(openFileDlg.FileName);
             }
         }
 

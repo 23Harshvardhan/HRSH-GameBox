@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\23har\Desktop\HRSH-GameBox\App.xaml
-3231318249
+4-64455368
 
-9167697238
+10-801955873
 14-1656046352
-MainWindow.xaml;pages\homePg.xaml;windows\AddGameWind.xaml;
+MainWindow.xaml;pages\gamePg.xaml;pages\homePg.xaml;windows\AddGameWind.xaml;
 
 False
 

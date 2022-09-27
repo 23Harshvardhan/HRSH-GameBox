@@ -29,6 +29,7 @@ namespace HRSH_GameBox.pages
         static string gamesFile = configFolder + @"\gms.ini";
         static string nameId = configFolder + @"\idn.ini";
         static string poster = configFolder + @"\pos.ini";
+        static string tempFile = configFolder + @"\temp.dat";
 
         IniFile cgfIni = new IniFile(configFile);
         IniFile gmsIni = new IniFile(gamesFile);
@@ -79,6 +80,14 @@ namespace HRSH_GameBox.pages
                     img.Stretch = Stretch.Fill;
                     img.Margin = new Thickness(20,20, 0, 0);
                     img.MouseDown += Img_MouseDown;
+                    img.ToolTip = inm.Read(id);
+
+                    var data = id;
+                    byte[] bytes = Encoding.UTF8.GetBytes(data);
+                    FileStream fs = File.OpenWrite(tempFile);
+                    fs.Write(bytes, 0, bytes.Length);
+                    fs.Dispose();
+
                     wrpPnl.Children.Add(img);
                 }
             }
@@ -87,6 +96,8 @@ namespace HRSH_GameBox.pages
         private void Img_MouseDown(object sender, MouseButtonEventArgs e)
         {
             var gameObj = (Image)sender;
+            var window = (MainWindow)Application.Current.MainWindow;
+            window.mainFrame.Content = new gamePg();
         }
 
         private void homePge_Loaded(object sender, RoutedEventArgs e)
