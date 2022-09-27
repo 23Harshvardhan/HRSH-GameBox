@@ -34,8 +34,6 @@ namespace HRSH_GameBox.pages
         IniFile inm = new IniFile(nameId);
         IniFile posIni = new IniFile(poster);
 
-        string[] gameIds = new string[999];
-
         public homePg()
         {
             InitializeComponent();
@@ -57,15 +55,17 @@ namespace HRSH_GameBox.pages
             string[] entries = File.ReadAllLines(nameId);
             entries = entries.Skip(1).ToArray();
 
-            if(gameIds.Length >= 1)
-                Array.Clear(gameIds, 0, gameIds.Length);
+            List<string> gameIds = new List<string>();
+
+            if (gameIds.Count >= 1)
+                gameIds.Clear();
 
             if (entries.Length >= 1)
             {
                 foreach (string entry in entries)
                 {
                     string id = entry.Substring(0, entry.IndexOf('='));
-                    gameIds.Append(id);
+                    gameIds.Add(id);
                 }
 
                 foreach (string id in gameIds)
@@ -73,7 +73,9 @@ namespace HRSH_GameBox.pages
                     Image img = new Image();
                     img.Name = inm.Read(id);
                     img.Source = new BitmapImage(new Uri(posIni.Read(id), UriKind.RelativeOrAbsolute));
-                    img.Width = img.Height = 500;
+                    img.Width = 140;
+                    img.Height = 200;
+                    img.Stretch = Stretch.Fill;
                     wrpPnl.Children.Add(img);
                 }
             }
