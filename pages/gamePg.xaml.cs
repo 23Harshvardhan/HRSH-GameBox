@@ -36,7 +36,7 @@ namespace HRSH_GameBox.pages
         IniFile poster = new IniFile(posterLoc);
         IniFile path = new IniFile(gamesFile);
 
-        private string idToLoad;
+        string idToLoad;
 
         public gamePg()
         {
@@ -45,12 +45,7 @@ namespace HRSH_GameBox.pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            FileStream fs = File.OpenRead(tempFile);
-            byte[] bytes = new byte[1024];
-            fs.Read(bytes, 0, bytes.Length);
-            fs.Dispose();
-
-            idToLoad = System.Text.Encoding.UTF8.GetString(bytes);
+            idToLoad = App.currentGame;
 
             lblGameName.Content = name.Read(idToLoad);
             imgPoster.Source = new BitmapImage(new Uri(poster.Read(idToLoad), UriKind.RelativeOrAbsolute));
@@ -58,11 +53,10 @@ namespace HRSH_GameBox.pages
 
         private void btnPlay_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(System.IO.Path.GetDirectoryName(path.Read(idToLoad)), path.Read(idToLoad));
             Process proc = new Process();
             proc.StartInfo.FileName = path.Read(idToLoad);
             proc.StartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(path.Read(idToLoad));
-            
+
             try
             {
                 proc.Start();

@@ -29,7 +29,6 @@ namespace HRSH_GameBox.pages
         static string gamesFile = configFolder + @"\gms.ini";
         static string nameId = configFolder + @"\idn.ini";
         static string poster = configFolder + @"\pos.ini";
-        static string tempFile = configFolder + @"\temp.dat";
 
         IniFile cgfIni = new IniFile(configFile);
         IniFile gmsIni = new IniFile(gamesFile);
@@ -73,6 +72,7 @@ namespace HRSH_GameBox.pages
                 foreach (string id in gameIds)
                 {
                     Image img = new Image();
+                    
                     img.Name = id;
                     img.Source = new BitmapImage(new Uri(posIni.Read(id), UriKind.RelativeOrAbsolute));
                     img.Width = 140;
@@ -81,13 +81,7 @@ namespace HRSH_GameBox.pages
                     img.Margin = new Thickness(20,20, 0, 0);
                     img.MouseDown += Img_MouseDown;
                     img.ToolTip = inm.Read(id);
-
-                    var data = id;
-                    byte[] bytes = Encoding.UTF8.GetBytes(data);
-                    FileStream fs = File.OpenWrite(tempFile);
-                    fs.Write(bytes, 0, bytes.Length);
-                    fs.Dispose();
-
+                    
                     wrpPnl.Children.Add(img);
                 }
             }
@@ -97,10 +91,16 @@ namespace HRSH_GameBox.pages
         {
             var gameObj = (Image)sender;
             var window = (MainWindow)Application.Current.MainWindow;
+            App.currentGame = gameObj.Name;
             window.mainFrame.Content = new gamePg();
         }
 
         private void homePge_Loaded(object sender, RoutedEventArgs e)
+        {
+            DrawLibrary();
+        }
+
+        private void btnRedraw_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             DrawLibrary();
         }

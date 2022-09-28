@@ -8,6 +8,7 @@
         Title="HRSH GameBox" Height="450" MinHeight="450" Width="800" MinWidth="800" Loaded="mainWind_Loaded" Background="White">
     <Grid>
         <Frame x:Name="mainFrame" Margin="0,40,0,0" NavigationUIVisibility="Hidden"></Frame>
-        <Button x:Name="btnGames" Content="Games" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="40" Width="91" Background="White" Foreground="DodgerBlue" FontFamily="Bahnschrift Light Condensed" FontWeight="Bold" FontSize="24"/>
+        <Button x:Name="btnGames" Content="Games" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="40" Width="91" Background="White" Foreground="DodgerBlue" FontFamily="Bahnschrift Light Condensed" FontWeight="Bold" FontSize="24" Margin="90,0,0,0"/>
+        <Button x:Name="btnHome" Content="Home" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="{x:Null}" Height="40" Width="90" Background="White" Foreground="DodgerBlue" FontFamily="Bahnschrift Light Condensed" FontWeight="Bold" FontSize="24" PreviewMouseDown="btnHome_PreviewMouseDown"/>
     </Grid>
 </Window>

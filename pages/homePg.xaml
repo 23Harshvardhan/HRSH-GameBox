@@ -13,9 +13,9 @@
         <Label x:Name="lblAuthor" Content="- Assassin's Creed" Margin="40,197,0,0" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="22" Height="36" VerticalAlignment="Top" HorizontalAlignment="Left" Width="143"/>
         <Button x:Name="btnRandom" ToolTip="Play a random game." Content="RANDOM" Margin="62,260,0,0" FontSize="16" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="143" Height="48" VerticalAlignment="Top"/>
         <Button x:Name="btnAddGame" ToolTip="Add a new game." Content="➕" HorizontalAlignment="Left" Margin="10,0,0,10" FontSize="16" FontFamily="Segoe UI Semibold" Width="30" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" Height="30" VerticalAlignment="Bottom" PreviewMouseDown="btnAddGame_PreviewMouseDown"/>
+        <Button x:Name="btnRedraw" ToolTip="Refresh library for new games." Content="⟳" HorizontalAlignment="Left" Margin="40,0,0,10" FontSize="16" FontFamily="Segoe UI Semibold" Width="30" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" Height="30" VerticalAlignment="Bottom" PreviewMouseDown="btnRedraw_PreviewMouseDown"/>
         <ScrollViewer Margin="360,0,0,40">
             <WrapPanel x:Name="wrpPnl"/>
         </ScrollViewer>
-        <Label x:Name="lblAddGame" Content="Add Game" Margin="40,0,0,4" FontFamily="Bahnschrift Condensed" FontWeight="Bold" FontSize="22" HorizontalAlignment="Left" Width="144" Height="36" VerticalAlignment="Bottom" Foreground="DodgerBlue"/>
     </Grid>
 </Page>
