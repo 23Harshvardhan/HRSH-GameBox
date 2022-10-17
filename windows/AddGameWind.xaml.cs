@@ -33,6 +33,8 @@ namespace HRSH_GameBox.windows
         IniFile gamePos = new IniFile(posterPath);
         IniFile nameFile = new IniFile(idName);
 
+        string temp1;
+
         public AddGameWind()
         {
             InitializeComponent();
@@ -45,7 +47,9 @@ namespace HRSH_GameBox.windows
             Nullable<bool> result = openFileDlg.ShowDialog();
             if (result == true)
             {
-                txtItemPath.Text = openFileDlg.FileName;
+                imgBannerPreview.Source = new BitmapImage(new Uri(openFileDlg.FileName));
+                temp1 = openFileDlg.FileName;
+                //txtItemPath.Text = openFileDlg.FileName;
             }
         }
 
@@ -63,7 +67,7 @@ namespace HRSH_GameBox.windows
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(txtItemPath.Text))
+            if (File.Exists(temp1))
             {
                 if(txtGameName.Text.Length >= 1)
                 {
@@ -73,8 +77,8 @@ namespace HRSH_GameBox.windows
                         gameCfg.Write(id, txtGamePath.Text);
                         nameFile.Write(id, txtGameName.Text);
 
-                        File.Move(txtItemPath.Text, posterFolder + System.IO.Path.GetFileName(txtItemPath.Text));
-                        gamePos.Write(id, posterFolder + System.IO.Path.GetFileName(txtItemPath.Text));
+                        File.Copy(temp1, posterFolder + System.IO.Path.GetFileName(temp1));
+                        gamePos.Write(id, posterFolder + System.IO.Path.GetFileName(temp1));
 
                         this.Close();
                     }
