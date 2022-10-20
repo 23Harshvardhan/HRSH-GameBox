@@ -47,7 +47,7 @@ namespace HRSH_GameBox.tools
                     FileStream fs = File.Create(gameConfigPath);
                     fs.Dispose();
 
-                    gameCfgFile.Write("verb", "false");
+                    gameCfgFile.Write("verb", "false" ,"launchConfig");
                 }
             }
         }
@@ -58,6 +58,24 @@ namespace HRSH_GameBox.tools
                 return "runas";
             else
                 return "";
+        }
+
+        public static string GetLastPlayed()
+        {
+            string gameConfigPath = gamesConfigFolder + @"\" + App.currentGame + ".ini";
+            IniFile gameCfgFile = new IniFile(gameConfigPath);
+
+            if (gameCfgFile.KeyExists("lastPlayed", "gameInfo"))
+            {
+                if (gameCfgFile.Read("lastPlayed", "gameInfo") == DateTime.Now.ToLongDateString().ToString())
+                    return "Today";
+                else if (gameCfgFile.Read("lastPlayed", "gameInfo") == DateTime.Today.AddDays(-1).ToLongDateString().ToString())
+                    return "Yesterday";
+                else
+                    return gameCfgFile.Read("lastPlayed", "gameInfo").Substring(0, gameCfgFile.Read("lastPlayed", "gameInfo").Length - 4);
+            }
+            else
+                return "Never";
         }
     }
 }

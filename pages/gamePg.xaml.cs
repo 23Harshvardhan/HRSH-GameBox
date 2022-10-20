@@ -52,10 +52,13 @@ namespace HRSH_GameBox.pages
 
             lblGameName.Content = name.Read(idToLoad);
             imgPoster.Source = new BitmapImage(new Uri(poster.Read(idToLoad), UriKind.RelativeOrAbsolute));
+            lblLastPlayedValue.Content = Helpers.GetLastPlayed();
         }
 
         private void btnPlay_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            Helpers.CheckGameConfig();
+
             Process proc = new Process();
             proc.StartInfo.FileName = path.Read(idToLoad);
             proc.StartInfo.Verb = Helpers.TranslateVerb(gameCfgFile.Read("verb"));
@@ -64,6 +67,7 @@ namespace HRSH_GameBox.pages
             try
             {
                 proc.Start();
+                gameCfgFile.Write("lastPlayed", DateTime.Now.ToLongDateString().ToString(), "gameInfo");
             }
             catch
             {

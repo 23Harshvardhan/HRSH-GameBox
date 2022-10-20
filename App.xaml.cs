@@ -13,6 +13,11 @@ namespace HRSH_GameBox
     /// </summary>
     public partial class App : Application
     {
+        // Keeps track of the current game's ID.
         public static string currentGame;
+
+        // Keeps track of the opening and closing time of the current game.
+        public static DateTime startTime;
+        public static DateTime endTime;
     }
 }
