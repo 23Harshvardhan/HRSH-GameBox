@@ -64,6 +64,9 @@
     <Compile Include="windows\AddGameWind.xaml.cs">
       <DependentUpon>AddGameWind.xaml</DependentUpon>
     </Compile>
+    <Compile Include="windows\GameConfigWind.xaml.cs">
+      <DependentUpon>GameConfigWind.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="windows\AddGameWind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="windows\GameConfigWind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

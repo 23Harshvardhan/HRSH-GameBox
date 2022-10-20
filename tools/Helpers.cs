@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,11 @@ namespace HRSH_GameBox.tools
         static string gamesFile = configFolder + @"\gms.ini";
         static string posterPath = configFolder + @"\pos.ini";
         static string idName = configFolder + @"\idn.ini";
+        static string gamesConfigFolder = configFolder + @"\config";
+        static string gameConfigPath = gamesConfigFolder + @"\" + App.currentGame + ".ini";
 
         static IniFile gameCfg = new IniFile(idName);
+        static IniFile gameCfgFile = new IniFile(gameConfigPath);
 
         public static string GetNewGameId()
         {
@@ -34,6 +38,17 @@ namespace HRSH_GameBox.tools
             }
 
             return "i" + i.ToString();
+        }
+
+        public static void CheckGameConfig()
+        {
+            if (!File.Exists(gameConfigPath))
+            {
+                FileStream fs = File.Create(gameConfigPath);
+                fs.Dispose();
+
+                gameCfgFile.Write("verb", "false");
+            }
         }
     }
 }

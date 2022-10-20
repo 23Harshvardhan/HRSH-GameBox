@@ -30,6 +30,7 @@ namespace HRSH_GameBox
         static string gamesFile = configFolder + @"\gms.ini";
         static string posterPath = configFolder + @"\pos.ini";
         static string idName = configFolder + @"\idn.ini";
+        static string gamesConfigFolder = configFolder + @"\config";
 
         public MainWindow()
         {
@@ -75,6 +76,9 @@ namespace HRSH_GameBox
 
             if (!Directory.Exists(posterFolder))
                 Directory.CreateDirectory(posterFolder);
+
+            if (!Directory.Exists(gamesConfigFolder))
+                Directory.CreateDirectory(gamesConfigFolder);
         }
     }
 }

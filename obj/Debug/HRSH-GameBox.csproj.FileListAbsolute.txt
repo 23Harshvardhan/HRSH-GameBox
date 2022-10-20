@@ -20,3 +20,5 @@ C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\windows\AddGameWind.g.cs
 C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\windows\AddGameWind.baml
 C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\pages\gamePg.g.cs
 C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\pages\gamePg.baml
+C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\windows\GameConfigWind.g.cs
+C:\Users\23har\Desktop\HRSH-GameBox\obj\Debug\windows\GameConfigWind.baml

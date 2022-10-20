@@ -9,11 +9,11 @@
       Title="gamePg" Background="White" Loaded="Page_Loaded">
 
     <Grid>
-        <Image x:Name="imgPoster" HorizontalAlignment="Left" Height="200" Margin="40,40,0,0" VerticalAlignment="Top" Width="140" Stretch="Fill" Source="/img/icons.png"/>
+        <Image x:Name="imgPoster" HorizontalAlignment="Left" Height="200" Margin="40,40,0,0" VerticalAlignment="Top" Width="140" Stretch="Fill"/>
         <Label x:Name="lblGameName" Content="Game Name" HorizontalAlignment="Left" Margin="208,59,0,0" VerticalAlignment="Top" Foreground="DodgerBlue" FontFamily="Bahnschrift SemiBold" FontSize="36"/>
         <Label x:Name="lblPlayTime" Content="Played for " HorizontalAlignment="Left" Margin="215,112,0,0" VerticalAlignment="Top" Foreground="#FF1B80E2" FontFamily="Bahnschrift Light" FontSize="18"/>
         <Label x:Name="lblLastPlayed" Content="Last played on " HorizontalAlignment="Left" Margin="215,140,0,0" VerticalAlignment="Top" Foreground="#FF1B80E2" FontFamily="Bahnschrift Light" FontSize="18"/>
         <Button x:Name="btnPlay" ToolTip="Launch game" Content="PLAY" Margin="215,208,0,0" FontSize="20" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="143" Height="48" VerticalAlignment="Top" PreviewMouseDown="btnPlay_MouseDown"/>
-        <Button x:Name="btnConfig" ToolTip="Configure settings for game." Content="⚙️" Margin="367,208,0,0" FontSize="20" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="48" Height="48" VerticalAlignment="Top"/>
+        <Button x:Name="btnConfig" ToolTip="Configure settings for game." Content="⚙️" Margin="367,208,0,0" FontSize="20" FontFamily="Segoe UI Semibold" BorderBrush="{x:Null}" Background="DodgerBlue" Foreground="White" HorizontalAlignment="Left" Width="48" Height="48" VerticalAlignment="Top" Click="btnConfig_Click"/>
     </Grid>
 </Page>

@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using HRSH_GameBox.tools;
 using System.Collections;
 using System.Diagnostics;
+using HRSH_GameBox.windows;
 
 namespace HRSH_GameBox.pages
 {
@@ -65,6 +66,14 @@ namespace HRSH_GameBox.pages
             {
                 MessageBox.Show("Unable to start process. Please check configuration for the game.", "Unable To Launch", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void btnConfig_Click(object sender, RoutedEventArgs e)
+        {
+            Helpers.CheckGameConfig();
+
+            GameConfigWind gameCfgWind = new GameConfigWind();
+            gameCfgWind.Show();
         }
     }
 }
