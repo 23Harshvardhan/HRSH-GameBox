@@ -10,15 +10,10 @@ namespace HRSH_GameBox.tools
     internal class Helpers
     {
         static string configFolder = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\GameBox";
-        static string configFile = configFolder + @"\cfg.ini";
-        static string gamesFile = configFolder + @"\gms.ini";
-        static string posterPath = configFolder + @"\pos.ini";
         static string idName = configFolder + @"\idn.ini";
         static string gamesConfigFolder = configFolder + @"\config";
-        static string gameConfigPath = gamesConfigFolder + @"\" + App.currentGame + ".ini";
 
         static IniFile gameCfg = new IniFile(idName);
-        static IniFile gameCfgFile = new IniFile(gameConfigPath);
 
         public static string GetNewGameId()
         {
@@ -42,13 +37,27 @@ namespace HRSH_GameBox.tools
 
         public static void CheckGameConfig()
         {
-            if (!File.Exists(gameConfigPath))
+            if (App.currentGame != null)
             {
-                FileStream fs = File.Create(gameConfigPath);
-                fs.Dispose();
+                string gameConfigPath = gamesConfigFolder + @"\" + App.currentGame + ".ini";
+                IniFile gameCfgFile = new IniFile(gameConfigPath);
 
-                gameCfgFile.Write("verb", "false");
+                if (!File.Exists(gameConfigPath))
+                {
+                    FileStream fs = File.Create(gameConfigPath);
+                    fs.Dispose();
+
+                    gameCfgFile.Write("verb", "false");
+                }
             }
+        }
+
+        public static string TranslateVerb(string verbReading)
+        {
+            if (verbReading == "true")
+                return "runas";
+            else
+                return "";
         }
     }
 }

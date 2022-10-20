@@ -31,8 +31,10 @@ namespace HRSH_GameBox.pages
         static string configFile = configFolder + @"\cfg.ini";
         static string gamesFile = configFolder + @"\gms.ini";
         static string nameId = configFolder + @"\idn.ini";
-        static string posterLoc = configFolder + @"\pos.ini";
+        static string posterLoc = configFolder + @"\pos.ini"; static string gamesConfigFolder = configFolder + @"\config";
+        static string gameConfigPath = gamesConfigFolder + @"\" + App.currentGame + ".ini";
 
+        IniFile gameCfgFile = new IniFile(gameConfigPath);
         IniFile name = new IniFile(nameId);
         IniFile poster = new IniFile(posterLoc);
         IniFile path = new IniFile(gamesFile);
@@ -56,6 +58,7 @@ namespace HRSH_GameBox.pages
         {
             Process proc = new Process();
             proc.StartInfo.FileName = path.Read(idToLoad);
+            proc.StartInfo.Verb = Helpers.TranslateVerb(gameCfgFile.Read("verb"));
             proc.StartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(path.Read(idToLoad));
 
             try
